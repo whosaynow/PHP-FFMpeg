@@ -114,7 +114,8 @@ class Gif extends AbstractMediaType
         $commands[] = '-i';
         $commands[] = $this->pathfile;
         $commands[] = '-vf';
-        $commands[] = 'scale=' . $this->dimension->getWidth() . ':-1';
+        //$commands[] = 'scale=' . $this->dimension->getWidth() . ':-1';
+        $commands[] = 'fps=5,setpts=(PTS-STARTPTS)/10,scale=' . $this->dimension->getWidth() . ':-1';
         $commands[] = '-gifflags';
         $commands[] = '+transdiff';
         $commands[] = '-y';
